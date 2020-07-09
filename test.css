@@ -75,4 +75,5 @@ p {
 /* 이부분 수정.. */
 .scroll-up-wrapper{
     flex-direction: row;
+    transform: scale(0.7);
 }

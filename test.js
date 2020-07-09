@@ -10,7 +10,7 @@ const SCROLL_UP = "scroll-up",
 // 그러니까 CSS 에서 이벤트 처리때 추가되는 놈들은 전부 하단으로 몰아넣을 것
 
 function imgSize(tf){ // 이미지 크기조절
-    const big = "30vh", small = "10vh";
+    const big = "30vh", small = "17vh";
     title.querySelector("img").style.maxWidth = tf ? big : small;
     title.querySelector("img").style.maxHeight = tf ? big : small;
 }
