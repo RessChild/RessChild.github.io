@@ -5,7 +5,6 @@
     overflow: hidden;
     text-align: center;
 
-    transition: 0.5s;
     /*
     transition 이 변화에 걸리는 시간 조절용..
     */
@@ -39,11 +38,13 @@ p {
 
     text-align: center;
     vertical-align: middle;
+    transition: 0.5s;
 }
 
 .js-content {
     display: flex;
     flex : 0;
+    transition: 0.5s;
 }
 
 .title-wrapper{
@@ -51,6 +52,50 @@ p {
     flex-direction: column;
     padding: 10px;
     font-size: 3vh;
+    font-weight: bold;
+}
+.content-side {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* 여기 완성하고 0으로 바꿀것 */
+    transition: 0.5s;
+    border-right: 2px solid gray;
+}
+.content-wrapper{
+    display: flex;
+    flex : 3;
+    padding: 3vh;
+}
+
+.content-side > p {
+    padding: 0.5vh;
+    font-weight: 900;
+    border-bottom: 2px solid gray;
+}
+#content-bar li {
+    border-bottom: 2px solid gray;
+    min-height: 6vh;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+
+    line-height: 6vh;
+    display: flex;
+}
+.bar-img-wrapper {
+    flex : 1;
+    vertical-align: middle;
+    display: flex;
+}
+.bar-img {
+    max-width: 4vw;
+    max-height: 4vh;
+    margin: auto; /* 그냥 상위를 flex 박아놓고, auto 때리면 알아서 중앙정렬되네.... */
+}
+.bar-name {
+    flex : 2;
+    font-size: 3vh;
+    font-weight: 450;
 }
 
 .title-img > img {
@@ -76,4 +121,7 @@ p {
 .scroll-up-wrapper{
     flex-direction: row;
     transform: scale(0.7);
+}
+.btn-side {
+    flex: 1;
 }

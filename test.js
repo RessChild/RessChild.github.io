@@ -1,10 +1,13 @@
 const title = document.querySelector(".js-title"),
-    content = document.querySelector(".js-content");
+    content = document.querySelector(".js-content"),
+    bar = document.querySelectorAll(".bar-img");
 
 const SCROLL_UP = "scroll-up",
     SCROLL_UP_W = "scroll-up-wrapper",
-    NAME = "PROGRAMMER 최현수";
-
+    NAME = "PROGRAMMER 최현수",
+    SELECT = "",
+    HOVER = "",
+    DEFAULT = "";
 
 // class list 에 중복되는 요소가 있으면 가장 뒤에 등자한 요소로 씀
 // 그러니까 CSS 에서 이벤트 처리때 추가되는 놈들은 전부 하단으로 몰아넣을 것
@@ -48,6 +51,14 @@ function init(){
     document.querySelector(".js-title").addEventListener("click", clickEvent);
 
     title.querySelector("#js-name").innerHTML = NAME;
+    // 위쪽 바는 document.title 로 변경 ( 윈도우 아님 )
+    document.title = "현수's 포트폴리오";
+
+    console.log(bar)
+    // 이부분 차후에 이미지 관련 처리해줘야함..
+    for(let k = 0; k<bar.length; k++){
+        bar[k].src = "./resource/ex.png" 
+    }
 }
 
 init();
