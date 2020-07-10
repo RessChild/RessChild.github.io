@@ -4,7 +4,8 @@ const title = document.querySelector(".js-title"),
     bar = document.querySelector("#content-bar"),
     bar_li = bar.querySelectorAll("li"),
     side = document.querySelector(".content-side"),
-    side_btn = document.querySelector("#side-btn");
+    side_btn = document.querySelector("#side-btn"),
+    content_in = content.querySelector(".content-wrapper");
 
 /* 여러 고정 상수 (문자열) */
 const SCROLL_UP = "scroll-up",
@@ -13,10 +14,13 @@ const SCROLL_UP = "scroll-up",
     SELECT = "./resource/list_select.png",
     DEFAULT = "./resource/list_default.png",
     BTN_CLICK = "hide-side",
-    BTN_ON = "./resource/ex.png";
+    BTN_ON = "./resource/ex.png",
+    CONTENT_DATA = "content-data",
+    CONTENT_LIST = [ "Project", "Activity", "Introduce", "Source" ]; 
 
 /* 기타 페이지용 변수 */
-let li_idx = -1; // 현재 선택된 페이지 번호 (초기값 = -1)
+let content_div = null;
+// 안쓰니까 지울까 고민중
 
 // class list 에 중복되는 요소가 있으면 가장 뒤에 등자한 요소로 씀
 // 그러니까 CSS 에서 이벤트 처리때 추가되는 놈들은 전부 하단으로 몰아넣을 것
@@ -62,7 +66,8 @@ function listClick(e) {
     bar_li.forEach(element => {
         element.querySelector(".bar-img").src = (e.currentTarget.key == element.key ? SELECT : DEFAULT);
     });
-    li_idx = e.currentTarget.key; // 선택된 페이지로 결정
+    createContent(e.currentTarget.key); // 선택된 페이지로 결정
+    
 }
 
 function btnClick(e){
@@ -93,9 +98,23 @@ function init(){
         bar_li[k].querySelector(".bar-img").src = DEFAULT;
         bar_li[k].addEventListener('click', listClick);
     }
-
     side_btn.src = BTN_ON;
     side_btn.addEventListener('click', btnClick);
 }
 
+// content 쪽 동적 생성
+function createContent(number){
+    const base = document.createElement("div");
+    base.className = CONTENT_DATA;
+    base.innerHTML = "ababasbabsab";
+
+    base.classList.add("content-" + CONTENT_LIST[number]) // 배경 섹 추가 테스트
+
+     // 뭔가 들어간게 있으면 제거 후 추가
+    if(content_div != null) content_in.removeChild(content_div);
+    content_in.appendChild(base);
+    content_div = base;
+}
+
 init();
+createContent(0);

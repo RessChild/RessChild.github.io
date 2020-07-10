@@ -51,7 +51,7 @@ p {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    font-size: 3vh;
+    font-size: 3vmin;
     font-weight: bold;
 }
 .content-side { /* 하단 좌측 메뉴바 */ 
@@ -97,7 +97,7 @@ p {
 }
 .bar-name {
     flex : 3;
-    font-size: 2vw;
+    font-size: 2vmax;
     font-weight: 450;
 }
 
@@ -121,11 +121,6 @@ p {
     transform: scale(1.5);
 }
 
-
-.content-wrapper > div { /* 하단 좌측에 적힐 실제 내용 */
-    margin: auto;;
-}
-
 /* --------------- 이벤트 발생용 CSS -------------- */
 
 .scroll-up { /* 타이틀 올라갈 때 추가될 밑줄 효과 */
@@ -141,4 +136,19 @@ p {
     /* 그렇다고 flex로 쓰자니, 화면이 좁아지는게 영 어색함 */
     /* 좀 찾아봐야할듯.. */
     display: none;
+}
+.content-data {
+    flex : 1;
+}
+.content-Project {
+    background-color: burlywood;
+}
+.content-Activity {
+    background-color: cadetblue;
+}
+.content-Introduce {
+    background-color: chartreuse;
+}
+.content-Source {
+    background-color: cornflowerblue;
 }
