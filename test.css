@@ -54,16 +54,16 @@ p {
     font-size: 3vh;
     font-weight: bold;
 }
-.content-side {
+.content-side { /* 하단 좌측 메뉴바 */ 
     display: flex;
     flex-direction: column;
     flex: 1; /* 여기 완성하고 0으로 바꿀것 */
     transition: 0.5s;
     border-right: 2px solid gray;
 }
-.content-wrapper{
+.content-wrapper{ /* 하단 우측 내용 */
     display: flex;
-    flex : 3;
+    flex : 3.5;
     padding: 3vh;
 }
 
@@ -82,6 +82,9 @@ p {
     line-height: 6vh;
     display: flex;
 }
+#content-bar li:hover {
+    text-decoration: underline;
+}
 .bar-img-wrapper {
     flex : 1;
     vertical-align: middle;
@@ -93,8 +96,8 @@ p {
     margin: auto; /* 그냥 상위를 flex 박아놓고, auto 때리면 알아서 중앙정렬되네.... */
 }
 .bar-name {
-    flex : 2;
-    font-size: 3vh;
+    flex : 3;
+    font-size: 2vw;
     font-weight: 450;
 }
 
@@ -111,6 +114,17 @@ p {
     justify-items: center;
     margin: 1vw;
 }
+#side-btn { /* 이미지 비율이 또 깨진다.. */
+    position: absolute;
+    max-height: 5vh;
+    max-width: 5vw;
+    transform: scale(1.5);
+}
+
+
+.content-wrapper > div { /* 하단 좌측에 적힐 실제 내용 */
+    margin: auto;;
+}
 
 /* --------------- 이벤트 발생용 CSS -------------- */
 
@@ -122,6 +136,9 @@ p {
     flex-direction: row;
     transform: scale(0.7);
 }
-.btn-side {
-    flex: 1;
+.hide-side {
+    /* display 는 animation 안먹음.. */
+    /* 그렇다고 flex로 쓰자니, 화면이 좁아지는게 영 어색함 */
+    /* 좀 찾아봐야할듯.. */
+    display: none;
 }
