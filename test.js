@@ -1,3 +1,6 @@
+/* 외부 스크립트 불러오기 */
+document.write("<script type='text/javascript' src='content.js'><"+"/script>");  
+
 /* HTMLDOM 객체 */
 const title = document.querySelector(".js-title"),
     content = document.querySelector(".js-content"),
@@ -14,9 +17,10 @@ const SCROLL_UP = "scroll-up",
     SELECT = "./resource/list_select.png",
     DEFAULT = "./resource/list_default.png",
     BTN_CLICK = "hide-side",
-    BTN_ON = "./resource/ex.png",
+    BTN_ON = "./resource/menu_on.png",
+    BTN_OFF = "./resource/menu_off.png",
     CONTENT_DATA = "content-data",
-    CONTENT_LIST = [ "Project", "Activity", "Introduce", "Source" ]; 
+    CONTENT_LIST = [ "Introduce", "Project", "Activity", "Source" ]; 
 
 /* 기타 페이지용 변수 */
 let content_div = null,
@@ -66,7 +70,7 @@ function listClick(e) {
     // 그냥 target 은 실제 클릭된 대상
     // currentTarget 은 해당 이벤트를 발생시킨 최상위 개체를 의미하는듯..
     bar_li.forEach(element => {
-        element.querySelector(".bar-img").src = (e.currentTarget.key == element.key ? SELECT : DEFAULT);
+            element.querySelector(".bar-img").src = ( e.currentTarget.key == element.key ? SELECT :DEFAULT);
     });
     createContent(e.currentTarget.key); // 선택된 페이지로 결정
 }
@@ -77,9 +81,11 @@ function btnClick(e){
     // 숨겨져있으면 보여주고, 보여져있으면 숨김
     if(!side.classList.contains(BTN_CLICK)){
         side.classList.add(BTN_CLICK);
+        side_btn.src=BTN_ON;
     }
     else{
         side.classList.remove(BTN_CLICK);
+        side_btn.src=BTN_OFF;
     }
 }
 
@@ -97,14 +103,13 @@ function init(){
     CONTENT_LIST.forEach(element => {
         const l = document.createElement("li");
         const d1 = document.createElement("div");
-
         const i1 = document.createElement("img");
         i1.className = "bar-img";
         
         d1.appendChild(i1);
         d1.className = "bar-img-wrapper";
 
-        const d2 = document.createElement("div")
+        const d2 = document.createElement("div");
         d2.innerHTML = element;
         d2.className = "bar-name";
 
@@ -123,7 +128,7 @@ function init(){
         bar_li[k].querySelector(".bar-img").src = DEFAULT;
         bar_li[k].addEventListener('click', listClick);
     }
-    side_btn.src = BTN_ON;
+    side_btn.src = BTN_OFF;
     side_btn.addEventListener('click', btnClick);
 }
 
@@ -131,7 +136,6 @@ function init(){
 function createContent(number){
     const base = document.createElement("div");
     base.className = CONTENT_DATA;
-    base.innerHTML = "ababasbabsab";
 
     base.classList.add("content-" + CONTENT_LIST[number]) // 배경 섹 추가 테스트
 
@@ -139,6 +143,23 @@ function createContent(number){
     if(content_div != null) content_in.removeChild(content_div);
     content_in.appendChild(base);
     content_div = base;
+
+    switch(number){
+        case 0:
+            Introduce(base);
+            break;
+        case 1:
+            Project(base);
+            break;
+        case 2:
+            Activity(base);
+            break;
+        case 3:
+            Source(base);
+            break;
+        default:
+            break;
+    }
 }
 
 init();

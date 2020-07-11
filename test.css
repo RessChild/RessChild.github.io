@@ -65,6 +65,7 @@ p {
     display: flex;
     flex : 3.5;
     padding: 3vh;
+    overflow: auto;
 }
 
 .content-side > p {
