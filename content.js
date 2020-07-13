@@ -1,6 +1,32 @@
+
+const axios = require('axios');
+
+const getBreeds = async () => {
+  try {
+    return await axios.get('https://dog.ceo/api/breeds/list/all');
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+const countBreeds = async () => {
+  const breeds = await getBreeds();
+  
+  if (breeds.data.message) {
+    console.log();
+  }
+};
+
+// -----------------------
+// 현재 axios 불러오는것부터 문제.. 자꾸 에러뜬다
+
 function Introduce(base){
-    console.log("Introduce");
-    base.innerHTML = "abc";
+  console.log("Introduce");
+  let breeds = getBreeds();
+  if(breeds.data.message){
+      base.innerHTML = `현재 강아지의 수는 ${Object.entries(breeds.data.message).length}입니다.`
+  }
 }
 function Project(base){
     console.log("Project");

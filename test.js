@@ -1,5 +1,5 @@
 /* 외부 스크립트 불러오기 */
-document.write("<script type='text/javascript' src='content.js'><"+"/script>");  
+// document.write("<script type='text/javascript' src='content.js'><"+"/script>");  
 
 /* HTMLDOM 객체 */
 const title = document.querySelector(".js-title"),
