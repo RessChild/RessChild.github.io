@@ -1,4 +1,4 @@
-
+/*
 const axios = require('axios');
 
 const getBreeds = async () => {
@@ -17,16 +17,18 @@ const countBreeds = async () => {
     console.log();
   }
 };
-
+*/
 // -----------------------
 // 현재 axios 불러오는것부터 문제.. 자꾸 에러뜬다
 
 function Introduce(base){
   console.log("Introduce");
+/*
   let breeds = getBreeds();
   if(breeds.data.message){
       base.innerHTML = `현재 강아지의 수는 ${Object.entries(breeds.data.message).length}입니다.`
   }
+  */
 }
 function Project(base){
     console.log("Project");

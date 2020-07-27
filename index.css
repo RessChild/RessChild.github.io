@@ -4,92 +4,152 @@
     padding: 0;
     overflow: hidden;
     text-align: center;
+
+    /*
+    transition 이 변화에 걸리는 시간 조절용..
+    */
   }  
 html, body {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
 }
 
-/* 하위 목록 1 */
+p {
+    text-align: center;
+}
+
 .wrapper {
     display: flex;
-    flex: 1;
+    flex : 1;
+    
     flex-direction: column;
-    padding: 50px;
-  }
-.windows_tool {
-  flex : 1;
-  background-color: gray;
-  border-radius: 30px 30px 0px 0px;
-  border: 3px solid black;
 }
-.windows_content {
-  flex : 15;
-  background-color: blueviolet;
-  
-  display: flex;
-  border-radius: 0px 0px 30px 30px;
+
+.js-title {
+    display: flex;
+    flex : 1;
+
+    /* align-content 는 그 줄을 전부 채우는 것 같음 */
+    /* 결국 내부 원소의 중앙 정렬을 하려면 justify-content 랑 align-items 를 써야함 */
+    /* + 무조건 display:flex 써야함 */
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    vertical-align: middle;
+    transition: 0.5s;
 }
-.content_area {
-    flex: 5;
+
+.js-content {
+    display: flex;
+    flex : 0;
+    transition: 0.5s;
+}
+
+.title-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 3vmin;
+    font-weight: bold;
+}
+.content-side { /* 하단 좌측 메뉴바 */ 
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* 여기 완성하고 0으로 바꿀것 */
+    transition: 0.5s;
+    border-right: 2px solid gray;
+}
+.content-wrapper{ /* 하단 우측 내용 */
+    display: flex;
+    flex : 3.5;
+    padding: 3vh;
+    overflow: auto;
+}
+
+.content-side > p {
+    padding: 0.5vh;
+    font-weight: 900;
+    border-bottom: 2px solid gray;
+}
+#content-bar li {
+    border-bottom: 2px solid gray;
+    min-height: 6vh;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+
+    line-height: 6vh;
+    display: flex;
+}
+#content-bar li:hover {
+    text-decoration: underline;
+}
+.bar-img-wrapper {
+    flex : 1;
+    vertical-align: middle;
+    display: flex;
+}
+.bar-img {
+    max-width: 4vw;
+    max-height: 4vh;
+    margin: auto; /* 그냥 상위를 flex 박아놓고, auto 때리면 알아서 중앙정렬되네.... */
+}
+.bar-name {
+    flex : 3;
+    font-size: 2vmax;
+    font-weight: 450;
+}
+
+.title-img > img {
+    /* max 만 걸어놓으면, 알아서 비율조정됨 */
+    /* min 거는 순간 일정 비율 밑으로 떨어지면 이미지 깨짐 */
+    max-width: 30vw;
+    max-height: 30vh;
+}
+.title-info {
+    display: flex;
+
+    align-items: center;
+    justify-items: center;
+    margin: 1vw;
+}
+#side-btn { /* 이미지 비율이 또 깨진다.. */
+    position: absolute;
+    max-height: 5vh;
+    max-width: 5vw;
+    transform: scale(1.5);
+}
+
+/* --------------- 이벤트 발생용 CSS -------------- */
+
+.scroll-up { /* 타이틀 올라갈 때 추가될 밑줄 효과 */
+    border-bottom: 2px solid gray;
+}
+/* 이부분 수정.. */
+.scroll-up-wrapper{
+    flex-direction: row;
+    transform: scale(0.7);
+}
+.hide-side {
+    /* display 는 animation 안먹음.. */
+    /* 그렇다고 flex로 쓰자니, 화면이 좁아지는게 영 어색함 */
+    /* 좀 찾아봐야할듯.. */
+    display: none;
+}
+.content-data {
+    flex : 1;
+}
+.content-Project {
+    background-color: burlywood;
+}
+.content-Activity {
     background-color: cadetblue;
 }
-.tools_area {
-  flex: 1;
-  flex-direction: column;
-  display: flex;
-  height: 100%;
-
-  background-color: chocolate;
+.content-Introduce {
+    background-color: chartreuse;
 }
-
-.user {
-  flex : 3;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.user > img {
-  flex: 1;
-  width: auto;
-  max-height: 100%;
-  min-width: 50%;
-  height: auto;
-  border-radius: 100px;
-}
-
-/* 이미지 비율을 유지하면서 크기를 조절하는 방법은 없을까.. */
-/* 일반적으로 쓰는건 크기를 고정해서 써서 그런거같은데.. */
-
-.tools {
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 7;
-
-  display: flex;
-  background-color: chocolate;
-}
-.tools_space{
-  flex: 1;
-}
-.tools > li {
-  flex: 1;
-  margin: 10px;
-  padding: 15px;
-  display: flex;
-
-  align-items: center;
-
-  background-color: black;
-  height: inherit;
-}
-.tools > li > img {
-  flex : 1;
-  background-color: blanchedalmond;
-}
-.tools > li > p {
-  font-size: 20px;
-  flex: 4;
-  background-color: crimson;
+.content-Source {
+    background-color: cornflowerblue;
 }

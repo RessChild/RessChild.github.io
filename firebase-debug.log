@@ -1,0 +1,21 @@
+[debug] [2020-07-17T13:01:54.974Z] ----------------------------------------------------------------------
+[debug] [2020-07-17T13:01:54.975Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\헨헨\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-07-17T13:01:54.975Z] CLI Version:   8.6.0
+[debug] [2020-07-17T13:01:54.976Z] Platform:      win32
+[debug] [2020-07-17T13:01:54.976Z] Node Version:  v12.18.2
+[debug] [2020-07-17T13:01:54.976Z] Time:          Fri Jul 17 2020 22:01:54 GMT+0900 (GMT+09:00)
+[debug] [2020-07-17T13:01:54.976Z] ----------------------------------------------------------------------
+[debug] [2020-07-17T13:01:54.977Z] 
+[debug] [2020-07-17T13:01:54.981Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-07-17T13:01:54.981Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Visual Studio Code Project\RessChild.github.io
+
